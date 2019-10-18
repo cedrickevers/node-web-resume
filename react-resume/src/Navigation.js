@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
-function Navigation() {
-  return (
-<div>
+class  Navigation extends Component {
 
-<nav className="flex-container">
+  render () {
 
-<h2 className="nav-logo">Online Resume</h2>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Portfolio</li>
-        <li>Contact</li>
-      </ul>
-</nav>
-</div>
-  );
+    const sections = ["Home", "About", "Services", "Portfolio", "contact"];
+    const navBoucle = sections.map( section  =>{
+      return (
+        <li><a href= {"#" + section}>{section}</a></li>
+      )
+    })
+    return (
+   <nav>
+   
+
+
+      
+      <h2 className="nav-logo">{this.props.LogoTitle}</h2>
+            <ul>
+            {navBoucle}
+
+           
+           
+            </ul>
+      
+     
+   </nav>
+
+
+        );
+  } 
 }
 
 export default Navigation;
